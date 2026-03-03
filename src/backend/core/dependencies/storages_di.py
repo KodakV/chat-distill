@@ -1,13 +1,13 @@
-from sqlalchemy.ext.asyncio import AsyncSession
 from fastapi import Depends
-from backend.db.session import get_async_db
+from sqlalchemy.ext.asyncio import AsyncSession
 
+from backend.db.session import get_async_db
 from backend.db.storages.async_chat_storage import AsyncChatStorage
-from backend.db.storages.async_user_storage import AsyncUserStorage
-from backend.db.storages.async_user_chat_storage import AsyncUserChatStorage
 from backend.db.storages.async_message_storage import AsyncMessageStorage
-from backend.db.storages.async_topic_storage import AsyncTopicStorage
 from backend.db.storages.async_topic_message_storage import AsyncTopicMessageStorage
+from backend.db.storages.async_topic_storage import AsyncTopicStorage
+from backend.db.storages.async_user_chat_storage import AsyncUserChatStorage
+from backend.db.storages.async_user_storage import AsyncUserStorage
 
 
 def get_async_chat_storage(db: AsyncSession = Depends(get_async_db)) -> AsyncChatStorage:

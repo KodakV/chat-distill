@@ -1,16 +1,17 @@
 from sqlalchemy import (
-    Column,
-    String,
-    DateTime,
-    Text,
     BigInteger,
     Boolean,
+    Column,
+    DateTime,
+    Index,
+    String,
+    Text,
     UniqueConstraint,
-    Index
 )
-from backend.db.base import Base
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.sql import func
+
+from backend.db.base import Base
 
 
 class Messages(Base):

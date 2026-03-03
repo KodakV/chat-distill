@@ -1,5 +1,7 @@
-import httpx
 from typing import List
+
+import httpx
+
 from config.llm_settings import get_llm_settings
 
 _MAX_CHARS = 2000

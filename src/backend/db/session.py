@@ -1,6 +1,7 @@
 from sqlalchemy import create_engine
+from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
+
 from config.backend_settings import get_backend_settings
 
 settings = get_backend_settings()
@@ -28,7 +29,6 @@ def get_db():
         raise
     finally:
         db.close()
-
 
 
 def _make_async_url(url: str) -> str:

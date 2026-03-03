@@ -2,7 +2,6 @@ from llm.prompts import get_prompt
 from llm.runner.llm_runner import LLMRunner
 
 
-
 class TopicExtractService:
     PARAMS ={
         "temperature": 0.1,

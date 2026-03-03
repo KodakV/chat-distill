@@ -1,5 +1,6 @@
-from config.base import Settings
 from functools import lru_cache
+
+from config.base import Settings
 
 
 class LLMSettings(Settings):

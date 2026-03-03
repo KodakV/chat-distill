@@ -1,11 +1,13 @@
-from typing import List, Union
-from backend.db.models.topics import Topics
-from llm.runner.llm_runner import LLMRunner
-from llm.prompts import get_prompt
-from backend.schemas.dto.topic_match_result import TopicMatchResult
-from pydantic import ValidationError
-import logging
 import json
+import logging
+from typing import List, Union
+
+from pydantic import ValidationError
+
+from backend.db.models.topics import Topics
+from backend.schemas.dto.topic_match_result import TopicMatchResult
+from llm.prompts import get_prompt
+from llm.runner.llm_runner import LLMRunner
 
 
 logger = logging.getLogger(__name__)

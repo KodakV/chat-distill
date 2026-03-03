@@ -2,10 +2,9 @@ import json
 import logging
 from typing import List
 
-from llm.runner.llm_runner import LLMRunner
-from llm.prompts import get_prompt
 from backend.db.models.messages import Messages
-from llm.runner.llm_runner import LLMResult
+from llm.prompts import get_prompt
+from llm.runner.llm_runner import LLMResult, LLMRunner
 
 logger = logging.getLogger(__name__)
 

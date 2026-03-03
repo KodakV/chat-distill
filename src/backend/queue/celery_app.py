@@ -1,4 +1,5 @@
 from celery import Celery
+
 from config.backend_settings import get_backend_settings
 
 settings = get_backend_settings()

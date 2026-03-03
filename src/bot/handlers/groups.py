@@ -1,7 +1,7 @@
-
-from aiogram import Router, F
-from aiogram.types import Message
 import asyncio
+
+from aiogram import F, Router
+from aiogram.types import Message
 
 from bot.clients.backend import BackendClient
 from bot.mappers.message_mapper import MessageMapper

@@ -1,5 +1,6 @@
-from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
+
 from backend.db.models.chats import Chats
 
 
@@ -18,4 +19,3 @@ class AsyncChatStorage:
         chat = Chats(id=chat_id, title=title, type=type, is_active=True)
         self.db.add(chat)
         return chat
-

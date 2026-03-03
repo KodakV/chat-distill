@@ -1,5 +1,6 @@
+from sqlalchemy import BigInteger, Column, String
+
 from backend.db.base import Base
-from sqlalchemy import Column, BigInteger, String
 
 
 class Users(Base):

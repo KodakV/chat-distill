@@ -1,6 +1,8 @@
 from pgvector.sqlalchemy import Vector
-from sqlalchemy import Column, DateTime, BigInteger, Index
+from sqlalchemy import BigInteger, Column, DateTime, Index
+
 from backend.db.base import Base
+
 
 class MessageEmbeddings(Base):
     __tablename__ = "message_embeddings"

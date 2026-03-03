@@ -1,6 +1,8 @@
 from pgvector.sqlalchemy import Vector
-from sqlalchemy import Column, BigInteger, String, Text, Integer, DateTime, Index
+from sqlalchemy import BigInteger, Column, DateTime, Index, Integer, String, Text
+
 from backend.db.base import Base
+
 
 class Topics(Base):
     __tablename__ = "topic"
@@ -21,5 +23,3 @@ class Topics(Base):
         Index("idx_topic_chat", "chat_id"),
         Index("idx_topic_chat_thread", "chat_id", "message_thread_id"),
     )
-
-

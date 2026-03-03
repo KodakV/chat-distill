@@ -1,28 +1,26 @@
-from fastapi import APIRouter, Depends, Query
+import logging
 from typing import List, Optional
 
-from backend.db.storages.async_user_chat_storage import AsyncUserChatStorage
-from backend.db.storages.async_message_storage import AsyncMessageStorage
-from backend.db.storages.async_topic_storage import AsyncTopicStorage
-from backend.db.storages.async_topic_message_storage import AsyncTopicMessageStorage
+from fastapi import APIRouter, Depends, Query
 
 from backend.core.dependencies.storages_di import (
-    get_async_user_chat_storage,
     get_async_message_storage,
-    get_async_topic_storage,
     get_async_topic_message_storage,
+    get_async_topic_storage,
+    get_async_user_chat_storage,
 )
 from backend.core.dependencies.telegram_auth import WebAppUser, get_webapp_user
-
+from backend.db.storages.async_message_storage import AsyncMessageStorage
+from backend.db.storages.async_topic_message_storage import AsyncTopicMessageStorage
+from backend.db.storages.async_topic_storage import AsyncTopicStorage
+from backend.db.storages.async_user_chat_storage import AsyncUserChatStorage
 from backend.schemas.api.client import (
     ChatInfoResponse,
     ChatThreadsResponse,
     ThreadInfoResponse,
     UserChatsResponse,
 )
-from backend.schemas.api.topics import TopicWithMessagesResponse, TopicMessageResponse
-
-import logging
+from backend.schemas.api.topics import TopicMessageResponse, TopicWithMessagesResponse
 
 logger = logging.getLogger(__name__)
 

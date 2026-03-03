@@ -1,5 +1,6 @@
-from sqlalchemy.orm import Session
 from typing import List
+
+from sqlalchemy.orm import Session
 
 from backend.db.models.message_embeddings import MessageEmbeddings
 

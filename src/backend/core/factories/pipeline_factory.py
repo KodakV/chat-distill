@@ -1,29 +1,25 @@
-from backend.db.storages.message_storage import MessageStorage
-from backend.db.storages.topic_storage import TopicStorage
-from backend.db.storages.topic_message_storage import TopicMessageStorage
-from backend.db.storages.chat_buffer_storage import ChatBufferStorage
-from backend.db.storages.message_embedding_storage import MessageEmbeddingStorage
-
-from backend.core.pipelines.process_message_pipeline import ProcessMessagePipeline
-from backend.core.pipelines.process_chat_block_pipeline import ProcessChatBlockPipeline
 from backend.core.pipelines.merge_topics_pipeline import MergeTopicsPipeline
+from backend.core.pipelines.process_chat_block_pipeline import ProcessChatBlockPipeline
+from backend.core.pipelines.process_message_pipeline import ProcessMessagePipeline
 from backend.core.pipelines.split_topics_pipeline import SplitTopicsPipeline
-
-from backend.core.services.llm.embedding_service import EmbeddingService
-from backend.core.services.llm.topic_extraction_service import TopicExtractService
-from backend.core.services.llm.topic_matching_service import TopicMatchingService
-from backend.core.services.llm.summarization_service import SummarizationService
 from backend.core.services.llm.batch_segmentation_service import BatchSegmentationService
+from backend.core.services.llm.embedding_service import EmbeddingService
+from backend.core.services.llm.summarization_service import SummarizationService
+from backend.core.services.llm.topic_extraction_service import TopicExtractService
+from backend.core.services.llm.topic_importance_service import TopicImportanceService
+from backend.core.services.llm.topic_matching_service import TopicMatchingService
 from backend.core.services.llm.topic_merge_service import TopicMergeService
 from backend.core.services.llm.topic_split_service import TopicSplitService
-from backend.core.services.llm.topic_importance_service import TopicImportanceService
-
-from llm.runner.embedding_runner import EmbeddingRunner
-from llm.clients.embedding_client import EmbeddingClient
-from llm.runner.llm_runner import LLMRunner
-from llm.clients.llm_client import LLMClient
-
+from backend.db.storages.chat_buffer_storage import ChatBufferStorage
+from backend.db.storages.message_embedding_storage import MessageEmbeddingStorage
+from backend.db.storages.message_storage import MessageStorage
+from backend.db.storages.topic_message_storage import TopicMessageStorage
+from backend.db.storages.topic_storage import TopicStorage
 from config.backend_settings import get_backend_settings
+from llm.clients.embedding_client import EmbeddingClient
+from llm.clients.llm_client import LLMClient
+from llm.runner.embedding_runner import EmbeddingRunner
+from llm.runner.llm_runner import LLMRunner
 
 
 def _make_llm_runner() -> LLMRunner:

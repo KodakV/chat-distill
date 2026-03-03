@@ -1,7 +1,8 @@
-from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
-from backend.db.models.topic_messages import TopicMessages
+from sqlalchemy.ext.asyncio import AsyncSession
+
 from backend.db.models.messages import Messages
+from backend.db.models.topic_messages import TopicMessages
 
 
 class AsyncTopicMessageStorage:

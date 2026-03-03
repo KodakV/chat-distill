@@ -1,6 +1,6 @@
 # Group Chat Summarization Bot
 
-![CI](https://github.com/your-username/your-repo/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/KodakV/chat-distill/actions/workflows/ci.yml/badge.svg)
 ![Python](https://img.shields.io/badge/python-3.12-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 

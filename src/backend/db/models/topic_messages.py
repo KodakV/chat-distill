@@ -1,5 +1,6 @@
+from sqlalchemy import BigInteger, Column, DateTime, Float, ForeignKey, Index
+
 from backend.db.base import Base
-from sqlalchemy import BigInteger, Column, DateTime, Float, Index, ForeignKey
 
 
 class TopicMessages(Base):

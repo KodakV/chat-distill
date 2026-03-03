@@ -1,7 +1,8 @@
+from datetime import datetime
+
+from sqlalchemy import BigInteger, Boolean, Column, DateTime, String
 
 from backend.db.base import Base
-from sqlalchemy import Column, BigInteger, String, DateTime, Boolean
-from datetime import datetime
 
 
 class Chats(Base):

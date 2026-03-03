@@ -2,9 +2,8 @@ from __future__ import annotations
 
 import logging
 
-from backend.db.models.messages import Messages
-from backend.db.storages.message_storage import MessageStorage
 from backend.db.storages.chat_buffer_storage import ChatBufferStorage
+from backend.db.storages.message_storage import MessageStorage
 
 
 logger = logging.getLogger(__name__)

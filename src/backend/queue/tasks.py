@@ -4,15 +4,15 @@ import os
 
 from celery.signals import worker_process_init
 
-from backend.queue.celery_app import celery_app
-from backend.db.session import SessionLocal
-from backend.db.storages.chat_buffer_storage import ChatBufferStorage
 from backend.core.factories.pipeline_factory import (
-    build_process_message_pipeline,
-    build_process_chat_block_pipeline,
     build_merge_topics_pipeline,
+    build_process_chat_block_pipeline,
+    build_process_message_pipeline,
     build_split_topics_pipeline,
 )
+from backend.db.session import SessionLocal
+from backend.db.storages.chat_buffer_storage import ChatBufferStorage
+from backend.queue.celery_app import celery_app
 
 logger = logging.getLogger(__name__)
 

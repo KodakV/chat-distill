@@ -1,14 +1,14 @@
 import logging
 from typing import List
 
-from backend.db.models.messages import Messages
-from backend.db.models.topics import Topics
-from backend.db.storages.topic_message_storage import TopicMessageStorage
-from backend.db.storages.topic_storage import TopicStorage
 from backend.core.services.llm.embedding_service import EmbeddingService
 from backend.core.services.llm.summarization_service import SummarizationService
 from backend.core.services.llm.topic_extraction_service import TopicExtractService
 from backend.core.services.llm.topic_split_service import TopicSplitService
+from backend.db.models.messages import Messages
+from backend.db.models.topics import Topics
+from backend.db.storages.topic_message_storage import TopicMessageStorage
+from backend.db.storages.topic_storage import TopicStorage
 
 logger = logging.getLogger(__name__)
 

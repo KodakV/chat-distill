@@ -1,9 +1,10 @@
-from sqlalchemy.orm import Session
-from typing import List
 from datetime import datetime
+from typing import List
 
-from backend.db.models.topic_messages import TopicMessages
+from sqlalchemy.orm import Session
+
 from backend.db.models.messages import Messages
+from backend.db.models.topic_messages import TopicMessages
 
 
 class TopicMessageStorage:

@@ -1,10 +1,10 @@
 from aiogram import Bot, Dispatcher
-from aiogram.enums import ParseMode
 from aiogram.client.default import DefaultBotProperties
+from aiogram.enums import ParseMode
 
-from config.bot_settings import get_bot_settings
-from bot.handlers import private, groups
+from bot.handlers import groups, private
 from bot.utils.logging import logger
+from config.bot_settings import get_bot_settings
 
 
 def create_bot() -> Bot:

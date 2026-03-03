@@ -1,9 +1,11 @@
-from sqlalchemy.orm import Session
-from sqlalchemy import func, desc, distinct
-from typing import List
-from datetime import datetime, timedelta
-from backend.db.models.topics import Topics
 import logging
+from datetime import datetime, timedelta
+from typing import List
+
+from sqlalchemy import desc, distinct, func
+from sqlalchemy.orm import Session
+
+from backend.db.models.topics import Topics
 
 logger = logging.getLogger(__name__)
 

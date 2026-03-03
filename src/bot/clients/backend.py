@@ -1,7 +1,8 @@
 import httpx
-from config.bot_settings import get_bot_settings
+
 from bot.schemas.messages import MessageRequest
 from bot.utils.logging import logger
+from config.bot_settings import get_bot_settings
 
 
 class BackendClient:

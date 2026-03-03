@@ -1,6 +1,7 @@
-from pydantic import BaseModel
 from datetime import datetime
-from typing import Any, Text, Literal
+from typing import Any, Literal, Text
+
+from pydantic import BaseModel
 
 ChatType = Literal["private", "group", "supergroup", "channel"]
 

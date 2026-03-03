@@ -1,6 +1,5 @@
 from typing import List
 
-from sqlalchemy import select, update
 from sqlalchemy.orm import Session
 
 from backend.db.models.chat_buffer import ChatBuffer

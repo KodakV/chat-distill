@@ -1,7 +1,8 @@
-from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
-from backend.db.models.user_chats import UserChats
+from sqlalchemy.ext.asyncio import AsyncSession
+
 from backend.db.models.chats import Chats
+from backend.db.models.user_chats import UserChats
 
 
 class AsyncUserChatStorage:
@@ -23,6 +24,6 @@ class AsyncUserChatStorage:
             select(Chats)
             .join(UserChats, UserChats.chat_id == Chats.id)
             .where(UserChats.user_id == user_id)
-            .where(Chats.is_active == True)
+            .where(Chats.is_active == True)  # noqa: E712
         )
         return list(result.scalars().all())

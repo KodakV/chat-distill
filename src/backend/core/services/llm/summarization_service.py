@@ -3,10 +3,9 @@ from __future__ import annotations
 import logging
 from typing import List
 
-from llm.runner.llm_runner import LLMRunner
-from llm.prompts import get_prompt
-
 from backend.db.models.messages import Messages
+from llm.prompts import get_prompt
+from llm.runner.llm_runner import LLMRunner
 
 logger = logging.getLogger(__name__)
 

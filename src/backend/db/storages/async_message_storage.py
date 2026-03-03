@@ -1,5 +1,6 @@
+from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select, func
+
 from backend.db.models.messages import Messages
 from backend.schemas.api.messages import MessageCreateRequest
 

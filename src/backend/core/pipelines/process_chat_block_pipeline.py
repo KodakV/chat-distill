@@ -2,19 +2,18 @@ import asyncio
 import logging
 from typing import List
 
-from backend.db.models.messages import Messages
-from backend.db.storages.chat_buffer_storage import ChatBufferStorage
-from backend.db.storages.message_storage import MessageStorage
-from backend.db.storages.topic_storage import TopicStorage
-from backend.db.storages.topic_message_storage import TopicMessageStorage
-from backend.db.storages.message_embedding_storage import MessageEmbeddingStorage
-
+from backend.core.services.llm.batch_segmentation_service import BatchSegmentationService
 from backend.core.services.llm.embedding_service import EmbeddingService
-from backend.core.services.llm.topic_matching_service import TopicMatchingService
 from backend.core.services.llm.summarization_service import SummarizationService
 from backend.core.services.llm.topic_extraction_service import TopicExtractService
-from backend.core.services.llm.batch_segmentation_service import BatchSegmentationService
 from backend.core.services.llm.topic_importance_service import TopicImportanceService
+from backend.core.services.llm.topic_matching_service import TopicMatchingService
+from backend.db.models.messages import Messages
+from backend.db.storages.chat_buffer_storage import ChatBufferStorage
+from backend.db.storages.message_embedding_storage import MessageEmbeddingStorage
+from backend.db.storages.message_storage import MessageStorage
+from backend.db.storages.topic_message_storage import TopicMessageStorage
+from backend.db.storages.topic_storage import TopicStorage
 
 logger = logging.getLogger(__name__)
 

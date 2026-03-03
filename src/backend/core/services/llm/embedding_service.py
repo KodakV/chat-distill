@@ -1,6 +1,6 @@
-from llm.clients.embedding_client import EmbeddingClient
-from llm.runner.embedding_runner import EmbeddingRunner
 from typing import List
+
+from llm.runner.embedding_runner import EmbeddingRunner
 
 
 class EmbeddingService:

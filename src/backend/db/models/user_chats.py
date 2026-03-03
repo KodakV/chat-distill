@@ -1,6 +1,8 @@
-from backend.db.base import Base
-from sqlalchemy import Column, BigInteger, DateTime, ForeignKey, UniqueConstraint
 from datetime import datetime
+
+from sqlalchemy import BigInteger, Column, DateTime, ForeignKey
+
+from backend.db.base import Base
 
 
 class UserChats(Base):

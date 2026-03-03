@@ -1,9 +1,9 @@
 from fastapi import Depends, FastAPI
 
-from backend.core.logging import setup_logging
-from backend.core.dependencies.auth import verify_api_key
-from backend.api.routes.messages import router as messages_router
 from backend.api.routes.client import router as client_router
+from backend.api.routes.messages import router as messages_router
+from backend.core.dependencies.auth import verify_api_key
+from backend.core.logging import setup_logging
 
 
 def create_app() -> FastAPI:
