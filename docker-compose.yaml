@@ -1,0 +1,81 @@
+version: "3.9"
+
+services:
+  db:
+    image: pgvector/pgvector:pg15
+    container_name: groupbot_db
+    restart: always
+    environment:
+      POSTGRES_DB: groupbot
+      POSTGRES_USER: groupbot
+      POSTGRES_PASSWORD: groupbot
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7
+    container_name: groupbot_redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+  backend:
+    build:
+      context: .
+      dockerfile: src/backend/Dockerfile
+    container_name: groupbot_backend
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "8000:8000"
+
+  worker:
+    build:
+      context: .
+      dockerfile: src/backend/Dockerfile
+    container_name: groupbot_worker
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - db
+      - redis
+    command: >
+      celery -A backend.queue.celery_app worker
+      --loglevel=info
+      --concurrency=2
+
+  bot:
+    build:
+      context: .
+      dockerfile: src/bot/Dockerfile
+    container_name: groupbot_bot
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - backend
+
+  celery-beat:
+    build:
+      context: .
+      dockerfile: src/backend/Dockerfile
+    container_name: groupbot_celery_beat
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - db
+      - redis
+    command: >
+      celery -A backend.queue.celery_app beat
+      --loglevel=info
+
+volumes:
+  postgres_data:

@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+    branches: ["main", "master"]
+  pull_request:
+    branches: ["main", "master"]
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install ruff
+        run: pip install ruff
+
+      - name: Run ruff
+        run: ruff check src/
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt pytest
+
+      - name: Run tests
+        env:
+          DATABASE_URL: postgresql+psycopg://test:test@localhost/test
+          REDIS_URL: redis://localhost:6379/0
+          CELERY_BROKER_URL: redis://localhost:6379/0
+          CELERY_RESULT_BACKEND: redis://localhost:6379/0
+          BACKEND_API_KEY: test-key
+          BOT_TOKEN: "123456:test_token"
+          BUFFER_DRAIN_INTERVAL_SECONDS: "120"
+          MERGE_TOPICS_INTERVAL_MINUTES: "5"
+          MERGE_TOPICS_LOOKBACK_HOURS: "24"
+          MERGE_SIMILARITY_THRESHOLD: "0.90"
+          SPLIT_TOPICS_INTERVAL_MINUTES: "5"
+          SPLIT_TOPICS_LOOKBACK_HOURS: "24"
+          SPLIT_TOPICS_MIN_MESSAGES: "20"
+          MATCH_CANDIDATE_THRESHOLD: "0.82"
+          MATCH_HIGH_CONFIDENCE_THRESHOLD: "0.92"
+          TOPIC_MIN_IMPORTANCE: "6"
+          LOCAL_LLM_BASE_URL: http://localhost:8001/v1
+          LOCAL_LLM_API_KEY: dummy
+          LOCAL_LLM_MODEL: test-model
+          EMBEDDING_BASE_URL: http://localhost:8002
+          EMBEDDING_API_KEY: dummy
+          EMBEDDING_MODEL: nomic-embed-text
+          PROMPT_LANGUAGE: ru
+        run: PYTHONPATH=src pytest tests/ -v

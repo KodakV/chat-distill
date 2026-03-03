@@ -1,0 +1,48 @@
+# Environment
+.env
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Docker volumes (don't commit data)
+postgres_data/
+
+# Jupyter / notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# Alembic runtime artifacts
+alembic/versions/__pycache__/
+
+
+# Test / coverage artifacts
+.pytest_cache/
+.coverage
+htmlcov/
