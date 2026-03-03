@@ -9,7 +9,6 @@ from backend.schemas.dto.topic_match_result import TopicMatchResult
 from llm.prompts import get_prompt
 from llm.runner.llm_runner import LLMRunner
 
-
 logger = logging.getLogger(__name__)
 
 
